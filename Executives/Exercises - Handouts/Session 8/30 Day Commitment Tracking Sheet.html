@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day Commitment Tracking Matrix</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .tracking-sheet {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #1e3c72;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .company-logo {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .session-info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #2196f3;
+            margin-bottom: 30px;
+        }
+        
+        .session-date {
+            font-weight: 600;
+            color: #1976d2;
+            margin-bottom: 5px;
+        }
+        
+        .participants-count {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .commitment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .commitment-table th {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #1565c0;
+        }
+        
+        .commitment-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+        
+        .commitment-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .commitment-table tr:hover {
+            background: #e3f2fd;
+            transition: background 0.3s ease;
+        }
+        
+        .executive-name {
+            font-weight: 600;
+            color: #1e3c72;
+            min-width: 120px;
+        }
+        
+        .division-tag {
+            background: #4caf50;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        .division-financial { background: #ff6b6b; }
+        .division-food { background: #4ecdc4; }
+        .division-agriculture { background: #45b7d1; }
+        .division-other { background: #96ceb4; }
+        
+        .commitment-text {
+            font-size: 14px;
+            line-height: 1.5;
+            max-width: 300px;
+        }
+        
+        .target-date {
+            font-weight: 600;
+            color: #f57c00;
+            min-width: 100px;
+        }
+        
+        .status-column {
+            text-align: center;
+            min-width: 80px;
+        }
+        
+        .status-indicator {
+            width: 60px;
+            height: 30px;
+            border-radius: 15px;
+            display: inline-block;
+            position: relative;
+            background: #e0e0e0;
+            margin: 5px 0;
+        }
+        
+        .progress-section {
+            margin-top: 40px;
+            background: #f1f8e9;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .progress-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        .progress-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .progress-card {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .progress-header {
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 8px;
+        }
+        
+        .progress-metric {
+            font-size: 24px;
+            font-weight: 700;
+            color: #4caf50;
+            margin-bottom: 5px;
+        }
+        
+        .progress-description {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .follow-up-box {
+            background: #fff3e0;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #ff9800;
+            margin-top: 30px;
+        }
+        
+        .follow-up-title {
+            font-weight: 600;
+            color: #f57c00;
+            margin-bottom: 10px;
+        }
+        
+        .follow-up-date {
+            font-size: 18px;
+            font-weight: 600;
+            color: #e65100;
+            margin-bottom: 8px;
+        }
+        
+        .follow-up-agenda {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+        
+        .signature-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+        
+        .signature-line {
+            border-bottom: 1px solid #666;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .signature-label {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .accountability-note {
+            background: #ffebee;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #f44336;
+            margin-top: 20px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .note-title {
+            font-weight: 600;
+            color: #c62828;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tracking-sheet">
+        <div class="header">
+            <div class="company-logo">GKFG</div>
+            <div class="title">30-Day Commitment Tracking Matrix</div>
+            <div class="subtitle">Data Literacy for Financial Executives - Session 8</div>
+        </div>
+
+        <div class="session-info">
+            <div class="session-date">Session Date: ________________</div>
+            <div class="participants-count">Executive Participants: _____ divisions represented</div>
+        </div>
+
+        <table class="commitment-table">
+            <thead>
+                <tr>
+                    <th>Executive Name</th>
+                    <th>Division</th>
+                    <th>30-Day Commitment</th>
+                    <th>Target Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="executive-name">________________________</td>
+                    <td><span class="division-tag division-financial">Financial Services</span></td>
+                    <td class="commitment-text">_________________________________<br/>_________________________________<br/>_________________________________</td>
+                    <td class="target-date">_______________</td>
+                    <td class="status-column"><div class="status-indicator"></div></td>
+                </tr>
+                <tr>
+                    <td class="executive-name">________________________</td>
+                    <td><span class="division-tag division-food">Food Division</span></td>
+                    <td class="commitment-text">_________________________________<br/>_________________________________<br/>_________________________________</td>
+                    <td class="target-date">_______________</td>
+                    <td class="status-column"><div class="status-indicator"></div></td>
+                </tr>
+                <tr>
+                    <td class="executive-name">________________________</td>
+                    <td><span class="division-tag division-agriculture">Agriculture</span></td>
+                    <td class="commitment-text">_________________________________<br/>_________________________________<br/>_________________________________</td>
+                    <td class="target-date">_______________</td>
+                    <td class="status-column"><div class="status-indicator"></div></td>
+                </tr>
+                <tr>
+                    <td class="executive-name">________________________</td>
+                    <td><span class="division-tag division-other">Other Division</span></td>
+                    <td class="commitment-text">_________________________________<br/>_________________________________<br/>_________________________________</td>
+                    <td class="target-date">_______________</td>
+                    <td class="status-column"><div class="status-indicator"></div></td>
+                </tr>
+                <tr>
+                    <td class="executive-name">________________________</td>
+                    <td><span class="division-tag division-other">Other Division</span></td>
+                    <td class="commitment-text">_________________________________<br/>_________________________________<br/>_________________________________</td>
+                    <td class="target-date">_______________</td>
+                    <td class="status-column"><div class="status-indicator"></div></td>
+                </tr>
+                <tr>
+                    <td class="executive-name">________________________</td>
+                    <td><span class="division-tag division-other">Other Division</span></td>
+                    <td class="commitment-text">_________________________________<br/>_________________________________<br/>_________________________________</td>
+                    <td class="target-date">_______________</td>
+                    <td class="status-column"><div class="status-indicator"></div></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="progress-section">
+            <div class="progress-title">📊 30-Day Progress Tracking (to be completed at follow-up)</div>
+            
+            <div class="progress-grid">
+                <div class="progress-card">
+                    <div class="progress-header">Commitments Completed</div>
+                    <div class="progress-metric">___ / ___</div>
+                    <div class="progress-description">On-time completion rate</div>
+                </div>
+                
+                <div class="progress-card">
+                    <div class="progress-header">Early Wins Achieved</div>
+                    <div class="progress-metric">_____%</div>
+                    <div class="progress-description">Exceeded expectations</div>
+                </div>
+                
+                <div class="progress-card">
+                    <div class="progress-header">Challenges Encountered</div>
+                    <div class="progress-metric">_____</div>
+                    <div class="progress-description">Issues requiring support</div>
+                </div>
+                
+                <div class="progress-card">
+                    <div class="progress-header">Cross-Division Collaboration</div>
+                    <div class="progress-metric">_____</div>
+                    <div class="progress-description">Shared initiatives launched</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="follow-up-box">
+            <div class="follow-up-title">📅 30-Day Follow-up Meeting</div>
+            <div class="follow-up-date">Scheduled Date: ________________________</div>
+            <div class="follow-up-agenda">
+                <strong>Agenda:</strong><br/>
+                • Review each commitment and completion status<br/>
+                • Share successes and challenges encountered<br/>
+                • Identify opportunities for cross-division collaboration<br/>
+                • Plan 60-day phase initiatives<br/>
+                • Address any implementation obstacles
+            </div>
+        </div>
+
+        <div class="accountability-note">
+            <div class="note-title">⚠️ Accountability Framework</div>
+            Public commitments increase follow-through rates by 65%. Each executive will report progress to the group, creating peer accountability and momentum for continued transformation. This document will be shared with all participants and reviewed at each follow-up meeting.
+        </div>
+
+        <div class="signature-section">
+            <div>
+                <div class="signature-line"></div>
+                <div class="signature-label">Facilitator Signature & Date</div>
+            </div>
+            <div>
+                <div class="signature-line"></div>
+                <div class="signature-label">Senior Executive Witness</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

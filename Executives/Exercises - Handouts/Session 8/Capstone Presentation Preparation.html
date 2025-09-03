@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capstone Presentation Preparation Worksheet</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .worksheet {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #1e3c72;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .company-logo {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .time-reminder {
+            background: #ff5722;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-content {
+            padding: 20px;
+        }
+        
+        .time-allocation {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1976d2;
+            margin-bottom: 15px;
+        }
+        
+        .prompt {
+            font-weight: 600;
+            color: #1e3c72;
+            margin-bottom: 8px;
+        }
+        
+        .writing-space {
+            min-height: 100px;
+            border: 2px dashed #ccc;
+            border-radius: 6px;
+            padding: 15px;
+            background: #fafafa;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .writing-space::before {
+            content: "Write your response here...";
+            color: #999;
+            font-style: italic;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            pointer-events: none;
+        }
+        
+        .checklist {
+            background: #f1f8e9;
+            border-radius: 6px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .checklist-title {
+            font-weight: 600;
+            color: #388e3c;
+            margin-bottom: 10px;
+        }
+        
+        .checklist-item {
+            margin-bottom: 6px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .checklist-item input[type="checkbox"] {
+            margin-top: 4px;
+        }
+        
+        .tips-box {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+        
+        .tips-title {
+            font-weight: 600;
+            color: #f57c00;
+            margin-bottom: 8px;
+        }
+        
+        .tip {
+            font-size: 14px;
+            margin-bottom: 4px;
+            color: #666;
+        }
+        
+        .resource-requirements {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .resource-category {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .category-title {
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        
+        .category-input {
+            width: 100%;
+            min-height: 60px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 12px;
+            resize: vertical;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="worksheet">
+        <div class="header">
+            <div class="company-logo">GKFG</div>
+            <div class="title">Capstone Presentation Preparation</div>
+            <div class="subtitle">Strategic Data Transformation Plan Worksheet</div>
+            <div class="time-reminder">⏱️ 20 Minutes Preparation Time</div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                🎯 1. Strategic Context
+            </div>
+            <div class="section-content">
+                <div class="time-allocation">Time Allocation: 1.5 minutes of your presentation</div>
+                
+                <div class="prompt">How does your data transformation align with Grace Kennedy's 2026 strategic objectives?</div>
+                <div class="writing-space"></div>
+                
+                <div class="prompt">What competitive advantage will this create for your division?</div>
+                <div class="writing-space"></div>
+                
+                <div class="tips-box">
+                    <div class="tips-title">💡 Key Tips</div>
+                    <div class="tip">• Connect to specific GK 2026 priorities, not general benefits</div>
+                    <div class="tip">• Focus on competitive differentiation, not operational efficiency</div>
+                    <div class="tip">• Quantify the strategic opportunity (market share, revenue growth)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                📊 2. Current State & Opportunity
+            </div>
+            <div class="section-content">
+                <div class="time-allocation">Time Allocation: 1.5 minutes of your presentation</div>
+                
+                <div class="prompt">What is your division's biggest analytical gap or decision-making bottleneck?</div>
+                <div class="writing-space"></div>
+                
+                <div class="prompt">What opportunities are you missing due to limited data capabilities?</div>
+                <div class="writing-space"></div>
+                
+                <div class="prompt">What decisions do you currently make with insufficient data?</div>
+                <div class="writing-space"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                📅 3. 90-Day Action Plan
+            </div>
+            <div class="section-content">
+                <div class="time-allocation">Time Allocation: 3 minutes of your presentation (most important section)</div>
+                
+                <div class="prompt">Days 1-30: Quick Wins (specific initiatives with dates)</div>
+                <div class="writing-space"></div>
+                
+                <div class="prompt">Days 31-60: Capability Building (training, processes, standards)</div>
+                <div class="writing-space"></div>
+                
+                <div class="prompt">Days 61-90: Technology Implementation (tools, integration, automation)</div>
+                <div class="writing-space"></div>
+                
+                <div class="checklist">
+                    <div class="checklist-title">✅ Action Plan Checklist</div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="specific-dates">
+                        <label for="specific-dates">Each initiative has specific target dates</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="responsible-parties">
+                        <label for="responsible-parties">Responsible parties identified for each action</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="measurable-outcomes">
+                        <label for="measurable-outcomes">Measurable outcomes defined for each phase</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="realistic-timeline">
+                        <label for="realistic-timeline">Timeline is realistic given current resources</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                💰 4. Resource Requirements
+            </div>
+            <div class="section-content">
+                <div class="time-allocation">Time Allocation: 1 minute of your presentation</div>
+                
+                <div class="resource-requirements">
+                    <div class="resource-category">
+                        <div class="category-title">Skills Development (40%)</div>
+                        <textarea class="category-input" placeholder="Training needs, hiring requirements, external consulting..."></textarea>
+                    </div>
+                    <div class="resource-category">
+                        <div class="category-title">Process Development (25%)</div>
+                        <textarea class="category-input" placeholder="Change management, governance, workflow redesign..."></textarea>
+                    </div>
+                    <div class="resource-category">
+                        <div class="category-title">Technology (20%)</div>
+                        <textarea class="category-input" placeholder="Software licenses, tools, integration costs..."></textarea>
+                    </div>
+                    <div class="resource-category">
+                        <div class="category-title">Infrastructure (15%)</div>
+                        <textarea class="category-input" placeholder="Security, data platforms, hardware..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="prompt" style="margin-top: 20px;">Total estimated budget for 90-day initiative:</div>
+                <div class="writing-space" style="min-height: 60px;"></div>
+                
+                <div class="prompt">6-month ROI projection (quantified benefits):</div>
+                <div class="writing-space" style="min-height: 60px;"></div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                📈 5. Success Metrics & ROI
+            </div>
+            <div class="section-content">
+                <div class="time-allocation">Time Allocation: 1 minute of your presentation</div>
+                
+                <div class="prompt">Three specific KPIs you'll report in our 90-day follow-up meeting:</div>
+                <div class="writing-space"></div>
+                
+                <div class="prompt">How will you measure decision quality improvement?</div>
+                <div class="writing-space"></div>
+                
+                <div class="prompt">What governance and risk mitigation measures will you implement?</div>
+                <div class="writing-space"></div>
+            </div>
+        </div>
+
+        <div class="checklist">
+            <div class="checklist-title">🎯 Final Presentation Readiness Check</div>
+            <div class="checklist-item">
+                <input type="checkbox" id="board-ready">
+                <label for="board-ready">This could be presented to GK board next month</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="business-focus">
+                <label for="business-focus">Focus is on business impact, not technical details</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="defendable-budget">
+                <label for="defendable-budget">Resource requirements are defendable with data</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="specific-measurable">
+                <label for="specific-measurable">All commitments are specific and measurable</label>
+            </div>
+            <div class="checklist-item">
+                <input type="checkbox" id="realistic-timeline">
+                <label for="realistic-timeline">Timeline and resources are realistic for your division</label>
+            </div>
+        </div>
+
+        <div class="footer">
+            <strong>Remember:</strong> 8 minutes presentation + 2 minutes Q&A<br>
+            Present to fellow executives as if delivering to Grace Kennedy board<br>
+            Focus on strategic impact and competitive advantage
+        </div>
+    </div>
+</body>
+</html>

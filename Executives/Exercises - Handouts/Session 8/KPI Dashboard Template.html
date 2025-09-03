@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive KPI Dashboard Template</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .dashboard-template {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #1e3c72;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .company-logo {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 8px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .dashboard-info {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .info-item {
+            text-align: center;
+        }
+        
+        .info-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 3px;
+        }
+        
+        .info-value {
+            font-weight: 600;
+            color: #1976d2;
+        }
+        
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .kpi-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 5px solid;
+            transition: transform 0.3s ease;
+        }
+        
+        .kpi-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .kpi-card:nth-child(1) { border-left-color: #ff6b6b; }
+        .kpi-card:nth-child(2) { border-left-color: #4ecdc4; }
+        .kpi-card:nth-child(3) { border-left-color: #45b7d1; }
+        .kpi-card:nth-child(4) { border-left-color: #96ceb4; }
+        
+        .kpi-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .kpi-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+        
+        .kpi-icon {
+            font-size: 20px;
+            opacity: 0.7;
+        }
+        
+        .kpi-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2e7d32;
+            margin-bottom: 5px;
+        }
+        
+        .kpi-target {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .kpi-trend {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+        
+        .trend-positive {
+            color: #4caf50;
+        }
+        
+        .trend-negative {
+            color: #f44336;
+        }
+        
+        .trend-neutral {
+            color: #ff9800;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .progress-good { background: linear-gradient(90deg, #4caf50, #8bc34a); }
+        .progress-warning { background: linear-gradient(90deg, #ff9800, #ffc107); }
+        .progress-danger { background: linear-gradient(90deg, #f44336, #ff5722); }
+        
+        .summary-section {
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 193, 7, 0.05));
+            border-radius: 12px;
+            padding: 25px;
+            border: 2px solid rgba(255, 193, 7, 0.3);
+            margin-bottom: 30px;
+        }
+        
+        .summary-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #f57c00;
+            margin-bottom: 15px;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        
+        .summary-item {
+            text-align: center;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        
+        .summary-metric {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .summary-label {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .actions-section {
+            background: #f1f8e9;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #4caf50;
+        }
+        
+        .actions-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2e7d32;
+            margin-bottom: 15px;
+        }
+        
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .action-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid;
+        }
+        
+        .action-priority-high { border-left-color: #f44336; }
+        .action-priority-medium { border-left-color: #ff9800; }
+        .action-priority-low { border-left-color: #4caf50; }
+        
+        .action-priority {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .action-text {
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .footer-notes {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+            font-size: 12px;
+            color: #666;
+            text-align: center;
+        }
+        
+        .editable-field {
+            background: #fffdf7;
+            border: 2px dashed #ffc107;
+            padding: 8px;
+            border-radius: 4px;
+            min-height: 20px;
+            font-weight: 600;
+            color: #f57c00;
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        
+        .status-green { background: #4caf50; }
+        .status-yellow { background: #ff9800; }
+        .status-red { background: #f44336; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-template">
+        <div class="header">
+            <div class="company-logo">GKFG</div>
+            <div class="title">Executive KPI Dashboard Template</div>
+            <div class="subtitle">Data-Driven Finance Performance Tracking</div>
+        </div>
+
+        <div class="dashboard-info">
+            <div class="info-item">
+                <div class="info-label">Division</div>
+                <div class="info-value editable-field">Your Division Name</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Reporting Period</div>
+                <div class="info-value editable-field">Q__ 20__</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Last Updated</div>
+                <div class="info-value editable-field">MM/DD/YYYY</div>
+            </div>
+        </div>
+
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <div class="kpi-title">Decision Quality Metrics</div>
+                    <div class="kpi-icon">🎯</div>
+                </div>
+                <div class="kpi-value editable-field">85%</div>
+                <div class="kpi-target">Target: 80% | Benchmark: 75%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill progress-good" style="width: 85%;"></div>
+                </div>
+                <div class="kpi-trend trend-positive">
+                    <span class="status-indicator status-green"></span>
+                    ↗️ +5% from last quarter
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <div class="kpi-title">Forecast Accuracy</div>
+                    <div class="kpi-icon">📊</div>
+                </div>
+                <div class="kpi-value editable-field">±12%</div>
+                <div class="kpi-target">Target: ±8% | Previous: ±15%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill progress-warning" style="width: 60%;"></div>
+                </div>
+                <div class="kpi-trend trend-positive">
+                    <span class="status-indicator status-yellow"></span>
+                    ↗️ 3% improvement, on track
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <div class="kpi-title">Time-to-Insight</div>
+                    <div class="kpi-icon">⚡</div>
+                </div>
+                <div class="kpi-value editable-field">7 days</div>
+                <div class="kpi-target">Target: 3-5 days | Previous: 14 days</div>
+                <div class="progress-bar">
+                    <div class="progress-fill progress-warning" style="width: 50%;"></div>
+                </div>
+                <div class="kpi-trend trend-positive">
+                    <span class="status-indicator status-yellow"></span>
+                    ↗️ 50% faster than baseline
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <div class="kpi-title">Business Impact</div>
+                    <div class="kpi-icon">💰</div>
+                </div>
+                <div class="kpi-value editable-field">$2.3M</div>
+                <div class="kpi-target">6-Month Target: $3.0M | Annualized</div>
+                <div class="progress-bar">
+                    <div class="progress-fill progress-good" style="width: 77%;"></div>
+                </div>
+                <div class="kpi-trend trend-positive">
+                    <span class="status-indicator status-green"></span>
+                    ↗️ 77% of annual target achieved
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-section">
+            <div class="summary-title">📈 90-Day Transformation Summary</div>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-metric editable-field" style="color: #4caf50;">4/5</div>
+                    <div class="summary-label">Quick Wins Completed</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-metric editable-field" style="color: #ff9800;">2</div>
+                    <div class="summary-label">Initiatives In Progress</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-metric editable-field" style="color: #2196f3;">285%</div>
+                    <div class="summary-label">ROI Achieved (6 months)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="actions-section">
+            <div class="actions-title">🚀 Recommended Actions Based on KPI Performance</div>
+            <div class="action-grid">
+                <div class="action-item action-priority-high">
+                    <div class="action-priority" style="color: #f44336;">High Priority</div>
+                    <div class="action-text editable-field">Accelerate dashboard automation to reach 3-5 day insight target</div>
+                </div>
+                
+                <div class="action-item action-priority-medium">
+                    <div class="action-priority" style="color: #ff9800;">Medium Priority</div>
+                    <div class="action-text editable-field">Implement predictive analytics for inventory forecasting</div>
+                </div>
+                
+                <div class="action-item action-priority-low">
+                    <div class="action-priority" style="color: #4caf50;">On Track</div>
+                    <div class="action-text editable-field">Continue current decision quality processes - exceeding target</div>
+                </div>
+                
+                <div class="action-item action-priority-medium">
+                    <div class="action-priority" style="color: #ff9800;">Medium Priority</div>
+                    <div class="action-text editable-field">Scale successful initiatives to other business units</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 30px;">
+            <div style="background: #e8f5e8; padding: 20px; border-radius: 10px; border-left: 4px solid #4caf50;">
+                <div style="font-weight: 600; color: #2e7d32; margin-bottom: 10px;">✅ Successes This Quarter</div>
+                <div style="font-size: 14px; line-height: 1.5;">
+                    <div class="editable-field" style="margin-bottom: 8px; min-height: 40px;">Weekly KPI reviews reduced decision lag by 50%</div>
+                    <div class="editable-field" style="margin-bottom: 8px; min-height: 40px;">Cross-division data sharing improved forecasting accuracy</div>
+                    <div class="editable-field" style="min-height: 40px;">Executive dashboard adoption at 100%</div>
+                </div>
+            </div>
+            
+            <div style="background: #fff3e0; padding: 20px; border-radius: 10px; border-left: 4px solid #ff9800;">
+                <div style="font-weight: 600; color: #f57c00; margin-bottom: 10px;">⚠️ Challenges & Mitigation</div>
+                <div style="font-size: 14px; line-height: 1.5;">
+                    <div class="editable-field" style="margin-bottom: 8px; min-height: 40px;">Data integration delays - working with IT on priority queue</div>
+                    <div class="editable-field" style="margin-bottom: 8px; min-height: 40px;">Staff training taking longer than expected - added external support</div>
+                    <div class="editable-field" style="min-height: 40px;">Budget variance tracking needs automation</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: #f3e5f5; padding: 20px; border-radius: 10px; border-left: 4px solid #9c27b0; margin-top: 25px;">
+            <div style="font-weight: 600; color: #7b1fa2; margin-bottom: 15px;">🎯 Next 30-Day Priorities</div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                <div style="background: white; padding: 12px; border-radius: 6px;">
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 5px; color: #1e3c72;">Priority 1</div>
+                    <div class="editable-field" style="min-height: 30px; font-size: 13px;">Complete automated forecasting implementation</div>
+                </div>
+                <div style="background: white; padding: 12px; border-radius: 6px;">
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 5px; color: #1e3c72;">Priority 2</div>
+                    <div class="editable-field" style="min-height: 30px; font-size: 13px;">Launch cross-division KPI sharing</div>
+                </div>
+                <div style="background: white; padding: 12px; border-radius: 6px;">
+                    <div style="font-weight: 600; font-size: 14px; margin-bottom: 5px; color: #1e3c72;">Priority 3</div>
+                    <div class="editable-field" style="min-height: 30px; font-size: 13px;">Train additional team members on analytics tools</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-notes">
+            <strong>Dashboard Usage Instructions:</strong><br>
+            • Update KPI values monthly or as data becomes available<br>
+            • Review trends and take action on items showing negative movement<br>
+            • Use this template for board presentations and stakeholder updates<br>
+            • Customize action items based on your division's specific needs<br><br>
+            <em>This dashboard template supports the Grace Kennedy 2026 data transformation strategy</em>
+        </div>
+    </div>
+</body>
+</html>
